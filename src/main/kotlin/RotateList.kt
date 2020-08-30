@@ -4,7 +4,7 @@ class RotateList {
     fun rotateRight(head: ListNode?, k: Int): ListNode? {
         var len = 1
         var pointer = head
-        while (pointer.next != null) {
+        while (pointer?.next != null) {
             len++
             pointer = pointer.next
         }

@@ -1,5 +1,4 @@
-class Node(value: Int) {
-    val value = value
+class Node(val value: Int) {
     var next: Node? = null
 }
 
@@ -18,12 +17,10 @@ class RemoveNthNodeFromEnd {
         pointer = head
         while (pointer != null) {
             if (len - i == n) {
-                pointer.next = pointer.next.next
+                pointer.next = pointer.next?.next
                 return head
             } else if (n == len) {
-                val temp = pointer.next
-                pointer = null
-                return temp
+                return pointer.next
             }
             pointer = pointer.next
             i++

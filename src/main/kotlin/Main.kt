@@ -3,16 +3,22 @@ class Main {
 
         @JvmStatic
         fun main(args: Array<String>) {
-            val cache = LRUCache(capacity = 2)
-            cache.put(1,1)
-            cache.put(2,2)
-            cache.get(1)
-            cache.put(3,3)
-            cache.get(2)
-            cache.put(4,4)
-            cache.get(1)
-            cache.get(3)
-            cache.get(4)
+            val array = intArrayOf(48, 12, 24, 7, 8, -5, 24, 391, 24, 56, 2, 6, 8, 41)
+            val minHeap = MaxHeap(array.toMutableList())
+            print("\n")
+            minHeap.insert(76)
+            print("\n")
+            print(minHeap.peek())
+            print("\n")
+            print(minHeap.remove())
+            print("\n")
+            print(minHeap.peek())
+            print("\n")
+            print(minHeap.remove())
+            print("\n")
+            print(minHeap.peek())
+            print("\n")
+            minHeap.insert(87)
         }
     }
 }

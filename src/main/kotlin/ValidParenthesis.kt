@@ -1,19 +1,36 @@
 import java.util.*
 
+//https://leetcode.com/problems/valid-parentheses/
+
 class ValidParenthesis {
     fun checkValidString(s: String): Boolean {
-        val stack: Stack<String> = Stack()
+        val stack: Stack<Char> = Stack()
         s.map {
-            if (it == '(') {
-                stack.push("(");
-            } else if (it == ')') {
-                if (!stack.isEmpty()){
-                    stack.pop()
-                }else {
-                    return false
+            when (it) {
+                '(', '{', '[' -> {
+                    stack.push('(');
                 }
-            }else{
-                ""
+                ')' -> {
+                    if (stack.isNotEmpty() && stack.peek() == '(')
+                        stack.pop()
+                    else
+                        return false
+                }
+                ']' -> {
+                    if (stack.peek() == '[')
+                        stack.pop()
+                    else
+                        return false
+                }
+                '}' -> {
+                    if (stack.peek() == '{')
+                        stack.pop()
+                    else
+                        return false
+                }
+                else -> {
+
+                }
             }
         }
         return stack.isEmpty()
